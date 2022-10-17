@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pro.goforit.generator.mapper.ArticleMapper">
+
+    <resultMap id="BaseResultMap" type="pro.goforit.generator.domain.Article">
+            <id property="id" column="id" jdbcType="VARCHAR"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="categoryLevel1" column="category_level1" jdbcType="VARCHAR"/>
+            <result property="categoryLevel2" column="category_level2" jdbcType="VARCHAR"/>
+            <result property="categoryLevel3" column="category_level3" jdbcType="VARCHAR"/>
+            <result property="categoryLevel4" column="category_level4" jdbcType="VARCHAR"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+            <result property="createUser" column="create_user" jdbcType="VARCHAR"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateUser" column="update_user" jdbcType="VARCHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="heat" column="heat" jdbcType="BIGINT"/>
+            <result property="ifReprinted" column="if_reprinted" jdbcType="TINYINT"/>
+            <result property="reprintedLink" column="reprinted_link" jdbcType="VARCHAR"/>
+            <result property="ifTop" column="if_top" jdbcType="TINYINT"/>
+            <result property="ifHomePageTop" column="if_home_page_top" jdbcType="TINYINT"/>
+            <result property="coverImageUrl" column="cover_image_url" jdbcType="VARCHAR"/>
+            <result property="ifArticle" column="if_article" jdbcType="TINYINT"/>
+            <result property="keywords" column="keywords" jdbcType="VARCHAR"/>
+            <result property="ifDisable" column="if_disable" jdbcType="TINYINT"/>
+            <result property="fileNum" column="file_num" jdbcType="VARCHAR"/>
+            <result property="downloadRole" column="download_role" jdbcType="VARCHAR"/>
+            <result property="lang" column="lang" jdbcType="VARCHAR"/>
+            <result property="plainText" column="plain_text" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,title,category_level1,
+        category_level2,category_level3,category_level4,
+        content,remark,create_user,
+        create_time,update_user,update_time,
+        heat,if_reprinted,reprinted_link,
+        if_top,if_home_page_top,cover_image_url,
+        if_article,keywords,if_disable,
+        file_num,download_role,lang,
+        plain_text
+    </sql>
+
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List"/>
+        from electrical_transport.article
+        where content is not null
+    </select>
+
+
+</mapper>
